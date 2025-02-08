@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine's Day Surprise for Riri</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    .container {
+      margin: 0 auto;
+      width: 80%;
+      max-width: 500px;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0px 0px 10px #ccc;
+    }
+    .button-container {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #ff80ab;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff4081;
+    }
+    /* Hide other pages initially */
+    #cuteMessage, #celebrationPage, #romanticMessagePage, #songPage, #sadPage {
+      display: none;
+    }
+    .scene {
+      position: relative;
+      width: 80%;
+      height: 250px;
+      margin: 40px auto;
+      border: 2px dashed #ff80ab;
+      border-radius: 10px;
+    }
+    .cat {
+      font-size: 50px;
+      position: absolute;
+    }
+    .cat-left {
+      left: 10%;
+      bottom: 10px;
+    }
+    .cat-right {
+      right: 10%;
+      bottom: 10px;
+    }
+    .gift {
+      font-size: 30px;
+      position: absolute;
+      bottom: 70px;
+      left: 10%;
+      opacity: 0;
+      animation: moveGift 5s ease forwards;
+    }
+    @keyframes moveGift {
+      0% { left: 10%; opacity: 0; transform: rotate(0deg); }
+      10% { opacity: 1; }
+      50% { left: 50%; opacity: 1; transform: rotate(10deg); }
+      100% { left: 70%; opacity: 1; transform: rotate(0deg); }
+    }
+    .stars-and-hearts {
+      font-size: 30px;
+      animation: twinkle 1.5s infinite ease-in-out;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    .heart {
+      color: #ff3366;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- First Page (YES or NO) -->
+  <div id="questionPage" class="container">
+    <h1>Happy Valentine's Day, Riri!</h1>
+    <p>Will you celebrate this special day with me?</p>
+    <div class="button-container">
+      <button onclick="showCuteMessage()">YES</button>
+      <button onclick="showSadPage()">NO</button>
+    </div>
+  </div>
+
+  <!-- Cute Message Page -->
+  <div id="cuteMessage" class="container">
+    <h2>YAY! ❤️</h2>
+    <p>You just made me the happiest person in the world! 💖</p>
+    <button onclick="showCelebration()">Next</button>
+  </div>
+
+  <!-- Celebration Animation Page -->
+  <div id="celebrationPage">
+    <h1>Happy Valentine's Day, Riri!</h1>
+    <div class="scene">
+      <div class="cat cat-left">🐱</div>
+      <div class="cat cat-right">🐱</div>
+      <div class="gift">💐 🍫❤️ 🍫⭐</div>
+    </div>
+    <button onclick="showRomanticMessagePage()">Next</button>
+  </div>
+
+  <!-- Romantic Message Page -->
+  <div id="romanticMessagePage" class="container">
+    <h1>Happy Valentine's Day, My Love! 💖</h1>
+    <p>
+      Every moment with you is special,<br>
+      and today, I want you to know<br>
+      how much you mean to me.<br>
+      You are my heart, my soul, my everything.<br>
+      I love you more than words can say.<br>
+      <span class="heart">❤️</span>
+    </p>
+    <p>
+      Forever yours,<br>
+      Your Meelo!  
+    </p>
+    <div class="stars-and-hearts">
+      &#9733; &#10084; &#9733; &#10084; &#9733; &#10084; &#9733; &#10084; &#9733;
+    </div>
+    <button onclick="showSongPage()">Next</button>
+  </div>
+
+  <!-- Song Page -->
+  <div id="songPage" class="container">
+    <h2>A Special Song for You 🎶</h2>
+    <p>Play this song to celebrate our special moment together! 💕</p>
+    <a href="https://www.youtube.com/watch?v=hu3ITLu6GPo" target="_blank">
+      <button>Play Song 🎵</button>
+    </a>
+  </div>
+
+  <!-- Sad Page -->
+  <div id="sadPage" class="container" style="background-color: #ffccd5;">
+    <h2>😢💔 Oh no...</h2>
+    <p>I was really hoping you'd celebrate with me... 😭😭😭</p>
+    <p>Please say YES! I promise to make this day super special for you! ❤️</p>
+    <button onclick="backToQuestion()">Go Back</button>
+  </div>
+
+  <script>
+    function showCuteMessage() {
+      document.getElementById('questionPage').style.display = "none";
+      document.getElementById('cuteMessage').style.display = "block";
+    }
+
+    function showCelebration() {
+      document.getElementById('cuteMessage').style.display = "none";
+      document.getElementById('celebrationPage').style.display = "block";
+    }
+
+    function showRomanticMessagePage() {
+      document.getElementById('celebrationPage').style.display = "none";
+      document.getElementById('romanticMessagePage').style.display = "block";
+    }
+
+    function showSongPage() {
+      document.getElementById('romanticMessagePage').style.display = "none";
+      document.getElementById('songPage').style.display = "block";
+    }
+
+    function showSadPage() {
+      document.getElementById('questionPage').style.display = "none";
+      document.getElementById('sadPage').style.display = "block";
+    }
+
+    function backToQuestion() {
+      document.getElementById('sadPage').style.display = "none";
+      document.getElementById('questionPage').style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
